@@ -1,0 +1,63 @@
+﻿@model DomZdravlja.Models.Pacijent
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Da li ste sigurni da zelite da izbrisete pacijenta?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bolests.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolests.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Godiste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Godiste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpisBolesti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpisBolesti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lekar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lekar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbrisi" class="btn btn-default" /> |
+            @Html.ActionLink("Nazad", "Index")
+        </div>
+    }
+</div>

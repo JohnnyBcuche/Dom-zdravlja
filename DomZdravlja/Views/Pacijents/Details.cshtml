@@ -1,0 +1,58 @@
+﻿@model DomZdravlja.Models.Pacijent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2></h2>
+
+<div>
+    <h4>Detalji o pacijentu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bolests.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolests.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Godiste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Godiste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpisBolesti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpisBolesti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lekar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lekar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmeni", "Edit", new { id = Model.PacijentId }) |
+    @Html.ActionLink("Nazad", "Index")
+</p>

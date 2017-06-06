@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DomZdravlja.Models.Pacijent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista pacijenata</h2>
+
+<p>
+    @Html.ActionLink("Ubaci novog pacijenta", "Create")
+</p>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bolests.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Godiste)
+        </th>
+        @*<th>
+        @Html.DisplayNameFor(model => model.OpisBolesti)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Lekar)
+    </th> *@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bolests.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Godiste)
+        </td>
+       @* <td>
+        @Html.DisplayFor(modelItem => item.OpisBolesti)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lekar)
+    </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PacijentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PacijentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PacijentId })
+        </td>
+    </tr>
+}
+
+</table>
+
+@using (Html.BeginForm("Index", "Pacijents", FormMethod.Get))
+{
+    <p>
+        Ime pacijenta: @Html.TextBox("SearchString")
+        <span class="glyphicon glyphicon-search"></span>
+        <input type="submit" value="Pretraži" class="btn btn-info">
+    </p>
+}
